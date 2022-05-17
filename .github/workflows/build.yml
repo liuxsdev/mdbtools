@@ -11,6 +11,7 @@ jobs:
         run: git clone https://github.com/mdbtools/mdbtestdata.git test
       - name: Autoconf
         run: |
+          C:\msys64\usr\bin\bash -c -l 'pacman -Syu'
           C:\msys64\usr\bin\bash -c -l 'pacman -S autoconfig'
           C:\msys64\usr\bin\bash -c -l 'cd "$GITHUB_WORKSPACE" && autoreconf -i -f'
       - name: Configure
