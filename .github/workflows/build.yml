@@ -1,5 +1,5 @@
 name: build
-on: [ workflow_dispatch]
+on: [workflow_dispatch]
 jobs:
   windows:
     runs-on: windows-latest
@@ -10,7 +10,9 @@ jobs:
       - name: Check out test data
         run: git clone https://github.com/mdbtools/mdbtestdata.git test
       - name: Autoconf
-        run: C:\msys64\usr\bin\bash -c -l 'cd "$GITHUB_WORKSPACE" && autoreconf -i -f'
+        run: |
+          C:\msys64\usr\bin\bash -c -l 'pacman -S autoconfig'
+          C:\msys64\usr\bin\bash -c -l 'cd "$GITHUB_WORKSPACE" && autoreconf -i -f'
       - name: Configure
         run: C:\msys64\usr\bin\bash -c -l 'cd "$GITHUB_WORKSPACE" && ./configure'
       - name: Make
