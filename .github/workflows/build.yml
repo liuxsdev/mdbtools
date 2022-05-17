@@ -12,7 +12,7 @@ jobs:
       - name: Autoconf
         run: |
           C:\msys64\usr\bin\bash -c -l 'pacman -Syu'
-          C:\msys64\usr\bin\bash -c -l 'pacman -Sy autoconfig'
+          C:\msys64\usr\bin\bash -c -l 'pacman -Sy autoconfig --noconfirm'
           C:\msys64\usr\bin\bash -c -l 'cd "$GITHUB_WORKSPACE" && autoreconf -i -f'
       - name: Configure
         run: C:\msys64\usr\bin\bash -c -l 'cd "$GITHUB_WORKSPACE" && ./configure'
